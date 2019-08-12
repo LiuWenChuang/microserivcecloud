@@ -1,0 +1,25 @@
+server:
+  port: 9527
+spring:
+  application:
+   name: microservicecloud-zuul-gateway
+   
+zuul:
+  prefix: /atguigu
+  ignored-services: "*" #禁止使用此服务名的请求 单个具体，多个可以用"*"
+  routes:
+    mydept.serviceId: microservicecloud-dept
+    mydept.path: /mydept/** #映射将上面的 服务映射的到 /mydept/上进行拦截访问
+    
+eureka:   
+  instance:
+   instance-id: gateway-9527.com
+   prefer-ip-address: true   #修改访问的链接 已IP的形式显示
+  client:
+    service-url:
+      defaultZone: http://wanglihan01:7001/eureka/,http://wanglihan02:7002/eureka/,http://wanglihan03:7003/eureka/ #8001 注冊到 一下服務中     eureka 集群配置 使用逗号 ,进行区分间隔
+info:
+  app.name: microservicecloud-zuul-gateway   #eureka 访问每一个微服务的 /info 的静态内容   build里面配置的 $
+  company.name: www.atguigu.com         #eureka 访问每一个微服务的 /info 的静态内容 
+  build.artifactId: microservicecloud-zuul-gateway-9527 #eureka 访问每一个微服务的 /info 的动态内容 
+  build.version: 0.0.1-SNAPSHOT

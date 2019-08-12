@@ -1,0 +1,12 @@
+server:
+  port: 7002
+eureka:
+  instance:
+    hostname: wanglihan02
+  client:
+    register-with-eureka: false #别把自己注册进去
+    fetch-registry: false #自己是服务端
+    service-url:
+    # defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/ #声明 访问的路径是什么
+     defaultZone: http://wanglihan01:7001/eureka/,http://wanglihan03:7003/eureka/
+       

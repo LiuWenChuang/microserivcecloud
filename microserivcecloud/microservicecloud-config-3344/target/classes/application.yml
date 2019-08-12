@@ -1,0 +1,12 @@
+server:
+  port: 4433
+spring:
+  application:
+    name: microservicecloud-config
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/LiuWenChuang/-microservicecloud-config.git
+          username: liu1120861559@outlook.com
+          password: LIUchuang668
